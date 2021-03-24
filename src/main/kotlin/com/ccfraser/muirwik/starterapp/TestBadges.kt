@@ -13,8 +13,8 @@ import styled.css
 
 
 class TestBadges : RComponent<RProps, RState>() {
-    var anchorOriginHorizontal = MBadgeAnchorOriginHorizontal.left
-    var anchorOriginVertical = MBadgeAnchorOriginVertical.top
+    private var anchorOriginHorizontal = MBadgeAnchorOriginHorizontal.left
+    private var anchorOriginVertical = MBadgeAnchorOriginVertical.top
 
     private object ComponentStyles : StyleSheet("ComponentStyles", isStatic = true) {
         val margin by css {
@@ -33,12 +33,24 @@ class TestBadges : RComponent<RProps, RState>() {
                     mFormControl {
                         mFormLabel("Vertical")
                         mRadioGroup(value = anchorOriginVertical.toString()) {
-                            mRadioWithLabel("Top", value = MBadgeAnchorOriginVertical.top.toString(), onChange = {
-                                _, checked -> setState { anchorOriginVertical = if (checked) MBadgeAnchorOriginVertical.top else MBadgeAnchorOriginVertical.bottom }
-                            })
-                            mRadioWithLabel("Bottom", value = MBadgeAnchorOriginVertical.bottom.toString(), onChange = {
-                                _, checked -> setState { anchorOriginVertical = if (checked) MBadgeAnchorOriginVertical.bottom else MBadgeAnchorOriginVertical.top }
-                            })
+                            mRadioWithLabel(
+                                "Top",
+                                value = MBadgeAnchorOriginVertical.top.toString(),
+                                onChange = { _, checked ->
+                                    setState {
+                                        anchorOriginVertical =
+                                            if (checked) MBadgeAnchorOriginVertical.top else MBadgeAnchorOriginVertical.bottom
+                                    }
+                                })
+                            mRadioWithLabel(
+                                "Bottom",
+                                value = MBadgeAnchorOriginVertical.bottom.toString(),
+                                onChange = { _, checked ->
+                                    setState {
+                                        anchorOriginVertical =
+                                            if (checked) MBadgeAnchorOriginVertical.bottom else MBadgeAnchorOriginVertical.top
+                                    }
+                                })
                         }
                     }
                 }
@@ -46,12 +58,24 @@ class TestBadges : RComponent<RProps, RState>() {
                     mFormControl {
                         mFormLabel("Horizontal")
                         mRadioGroup(value = anchorOriginHorizontal.toString()) {
-                            mRadioWithLabel("Left", value = MBadgeAnchorOriginHorizontal.left.toString(), onChange = {
-                                _, checked -> setState { anchorOriginHorizontal = if (checked) MBadgeAnchorOriginHorizontal.left else MBadgeAnchorOriginHorizontal.right }
-                            })
-                            mRadioWithLabel("Right", value = MBadgeAnchorOriginHorizontal.right.toString(), onChange = {
-                                _, checked -> setState { anchorOriginHorizontal = if (checked) MBadgeAnchorOriginHorizontal.right else MBadgeAnchorOriginHorizontal.left }
-                            })
+                            mRadioWithLabel(
+                                "Left",
+                                value = MBadgeAnchorOriginHorizontal.left.toString(),
+                                onChange = { _, checked ->
+                                    setState {
+                                        anchorOriginHorizontal =
+                                            if (checked) MBadgeAnchorOriginHorizontal.left else MBadgeAnchorOriginHorizontal.right
+                                    }
+                                })
+                            mRadioWithLabel(
+                                "Right",
+                                value = MBadgeAnchorOriginHorizontal.right.toString(),
+                                onChange = { _, checked ->
+                                    setState {
+                                        anchorOriginHorizontal =
+                                            if (checked) MBadgeAnchorOriginHorizontal.right else MBadgeAnchorOriginHorizontal.left
+                                    }
+                                })
                         }
                     }
                 }
